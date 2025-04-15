@@ -2017,6 +2017,13 @@ footer {
 
 
 @media only screen and (min-width: 1024px) {
+html,
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
 
 #laptop{
     display: block;
@@ -2029,6 +2036,13 @@ footer {
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait){
+    html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
 #laptop {
         display: none;
     }
@@ -2039,6 +2053,13 @@ footer {
 }
 
 @media only screen and (device-width: 390px) and (-webkit-device-pixel-ratio: 3) {
+
+    html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 #laptop {
         display: none;
     }
@@ -2049,6 +2070,13 @@ footer {
 }
 
 @media only screen and (device-width: 414px) and (-webkit-device-pixel-ratio: 2) {
+
+    html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 #laptop {
         display: none;
     }

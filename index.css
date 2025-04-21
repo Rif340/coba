@@ -1097,7 +1097,7 @@ hr {
 .mobile {
     width: 393px;
     max-width: 600px;
-    height: 4940px;
+    height: 4897px;
     background-color: salmon;
     overflow: hidden;
 
@@ -1301,8 +1301,8 @@ hr {
 }
 
 .sejarah button {
-    width: 127px;
-    height: 28px;
+    width: 136px;
+    height: 30px;
     background-color: #643cb8;
     border: none;
     border-radius: 12px;
@@ -1409,7 +1409,7 @@ hr {
     height: 42px;
     display: block;
     position: absolute;
-    right: 16em;
+    right: 18em;
     rotate: 20deg;
 }
 
@@ -1544,27 +1544,42 @@ hr {
     width: 100%;
     height: 50px;
     display: flex;
-    gap: 4px;
     justify-content: center;
     position: relative;
     bottom: 4rem;
     z-index:9999;
 }
 
-.tombol_mobile i {
+.tombol_mobile .arrow-kiri{
     width: 20px;
     height: 20px;
     display: block;
     color: #d2b2ff;
-
+    font-size:30px;
+    position: absolute;
+    bottom:2.5rem;
+    left:8rem;
 }
 
+.tombol_mobile .arrow-kanan {
+    width: 20px;
+    height: 20px;
+    display: block;
+    color: #d2b2ff;
+    font-size: 30px;
+    position: absolute;
+    bottom: 2.5rem;
+    right: 8.4rem;
+}
+
+
+
 .tombol_kecil_mobile {
-    margin-top: 3px;
     width: 8px;
     height: 8px;
     background: linear-gradient(#ffb8cf, #93e5fb);
     border-radius: 50%;
+    margin-inline:4px;
 }
 
 /* akhir tombol perjalanan */
@@ -1936,9 +1951,13 @@ footer {
     border: none;
     outline: none;
     border-radius: 3px;
+    
 }
 
-
+.scroll-top-hr:hover {
+    background: #888;
+    transition: background 0.3s;
+}
 /* akhir footer */
 
 

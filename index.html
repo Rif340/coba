@@ -680,7 +680,8 @@
             <!-- teks sejarah -->
             <div class="sejarah">
                 <h1>Sejarah<br><span>Himtika</span></h1>
-                <button onclick="document.getElementById('tujuan-button').scrollIntoView({ behavior: 'smooth' });">Let's get
+                <button type="button"
+  onclick="document.getElementById('tujuan-button').scrollIntoView({ behavior: 'smooth' });">Let's get
                     started<i class="fa-regular fa-circle-right"></i></button>
                 <img class="bintang1" src="asset/wide.png" alt="">
                 <img class="bintang2" src="asset/wide2.png" alt="">
@@ -796,13 +797,13 @@
     
             <!-- tombol -->
             <div class="tombol_mobile">
-                <i class="fa-regular fa-circle-left" onclick="plusSlides2(1)" style="cursor: pointer;"></i>
+                <i class="arrow-kiri fa-regular fa-circle-left" onclick="plusSlides2(1)" style="cursor: pointer;"></i>
                 <div class="dot2 tombol_kecil_mobile" onclick="currentSlide2(1)"></div>
                 <div class="dot2 tombol_keci_mobile" onclick="currentSlide2(2)"></div>
                 <div class="dot2 tombol_kecil_mobile" onclick="currentSlide2(3)"></div>
                 <div class="dot2 tombol_kecil_mobile" onclick="currentSlide2(4)"></div>
                 <div class="dot2 tombol_kecil_mobile" onclick="currentSlide2(5)"></div>
-                <i class="fa-regular fa-circle-right" onclick="plusSlides2(-1)" style="cursor: pointer;"></i>
+                <i class="arrow-kanan fa-regular fa-circle-right" onclick="plusSlides2(-1)" style="cursor: pointer;"></i>
             </div>
             <!-- akhir tombol -->
     
@@ -1023,7 +1024,7 @@
     
             <!-- footer bawah 2 -->
             <div class="footer-bawah2">
-                <hr>
+                <hr id="topHr" class="scroll-top-hr" title="Klik untuk ke atas">
             </div>
             <!-- akhir footer bawah 2 -->
     
@@ -1036,7 +1037,11 @@
     
     </center>
     <!-- akhir secret tag center -->
-    
+    <script>
+        document.getElementById("topHr").addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
     <!-- script buat infinite scorll laynard -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {

@@ -1129,10 +1129,8 @@ hr {
     cursor: pointer;
 }
 
-/* dropdown */
 .dropdown {
     align-items: left;
-    /* display: none; */
     flex-direction: column;
     background-color: white;
     padding: 0.5rem;
@@ -1140,16 +1138,12 @@ hr {
     width: 100%;
     gap: 1rem;
     max-height: 0;
-    /* Tambahkan ini */
     overflow: hidden;
-    /* Tambahkan ini */
     transition: max-height 0.5s ease-in;
-    /* Ubah ini */
 }
 
 .dropdown.open {
-    max-height: 700px;
-    /* Tinggi maksimal saat dibuka, sesuaikan dengan isi */
+    max-height: 730px;
 }
 
 .dropdown a {

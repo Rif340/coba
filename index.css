@@ -476,11 +476,16 @@ nav.scrolled {
 }
 
 /* Laynard */
+<<<<<<< HEAD
 .live-awal {
+=======
+.laynard {
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     width: 100%;
     height: 64px;
     background-color: #1e2036;
     display: flex;
+<<<<<<< HEAD
     align-items: center;
     overflow: hidden;
     white-space: nowrap;
@@ -493,10 +498,36 @@ nav.scrolled {
     from {
         transform: translateX(0);
     }
+=======
+    justify-content: space-around;
+    align-items: center;
+    z-index: 4;
+    position: absolute;
+    bottom: 0rem;
+}
+
+.laynard .marquee {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+    gap: 2rem;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     to {
         transform: translateX(-100%);
     }
 }
+<<<<<<< HEAD
 .live-awal .live {
     display: flex;
     align-items: center;
@@ -510,18 +541,43 @@ nav.scrolled {
     height: 32px;
 }
 .live-awal span {
+=======
+
+.isi_laynard {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    padding-block: 1rem;
+}
+
+.isi_laynard img {
+    width: 48px;
+    height: 32px;
+}
+
+.isi_laynard h5 {
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     color: white;
     font-size: 16px;
     font-weight: 600;
 }
 
+<<<<<<< HEAD
 
 /* laynard 2 */
 .live-kabinet {
+=======
+/* akhir layer ke 2 */
+
+/* laynard 2 */
+.laynard2 {
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     width: 100%;
     height: 64px;
     background-color: #1e2036;
     display: flex;
+<<<<<<< HEAD
     align-items: center;
     overflow: hidden;
     white-space: nowrap;
@@ -534,10 +590,34 @@ nav.scrolled {
     from {
         transform: translateX(0);
     }
+=======
+    justify-content: space-around;
+    z-index: 4;
+    bottom: 0;
+}
+
+.laynard2 .marquee2 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+    gap: 2rem;
+}
+
+@keyframes marquee2 {
+    from {
+        transform: translateX(100%);
+    }
+
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     to {
         transform: translateX(-100%);
     }
 }
+<<<<<<< HEAD
 .live-kabinet .live {
     min-width: 10%;
     display: flex;
@@ -552,11 +632,32 @@ nav.scrolled {
     height: 32px;
 }
 .live-kabinet span {
+=======
+
+.isi_laynard2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    padding-block: 1rem;
+}
+
+.isi_laynard2 img {
+    width: 48px;
+    height: 32px;
+}
+
+.isi_laynard2 h5 {
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     color: white;
     font-size: 16px;
     font-weight: 600;
 }
 
+<<<<<<< HEAD
+=======
+/* akhir laynard 2 */
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
 
 .pembungkus_perjalanan {
     background-image: linear-gradient(#1c1e32, #4B2283);
@@ -1081,8 +1182,12 @@ hr {
     height: 80px;
     display: flex;
     width: 100%;
+<<<<<<< HEAD
     background-color: #1e2036;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+=======
+    background-color: white;
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1108,7 +1213,11 @@ hr {
 .dropdown {
     align-items: left;
     flex-direction: column;
+<<<<<<< HEAD
     background-color: #1e2036;
+=======
+    background-color: white;
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     padding: 0.5rem;
     z-index: 1000;
     width: 100%;
@@ -1382,6 +1491,7 @@ hr {
     rotate: 20deg;
 }
 
+<<<<<<< HEAD
 /* Laynard */
 .live-awal {
     width: 100%;
@@ -1415,6 +1525,30 @@ hr {
     height: 32px;
 }
 .live-awal span {
+=======
+.laynard_mobile {
+    width: 100%;
+    height: 50px;
+    background-color: #1c1e32;
+    position: relative;
+    overflow: scroll;
+    display: flex;
+    gap: 2rem;
+}
+
+.isi_mobile {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.isi_mobile img {
+    width: 48px;
+    height: 32px;
+}
+
+.isi_mobile h5 {
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     font-size: 12px;
     color: white
 }
@@ -1684,6 +1818,7 @@ hr {
 
 /* akhir teks kabinet */
 
+<<<<<<< HEAD
 
 /* laynard 2 */
 .live-kabinet {
@@ -1721,10 +1856,42 @@ hr {
     height: 32px;
 }
 .live-kabinet span {
+=======
+/* awal laynard 2 */
+.laynard2_mobile {
+    width: 100%!important;
+    height: 50px;
+    background-color: #1c1e32;
+    position: absolute;
+    overflow: scroll;
+    
+    display: flex;
+    gap: 2rem;
+    bottom: 0;
+}
+
+.isi2_mobile {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.isi2_mobile img {
+    width: 48px;
+    height: 32px;
+}
+
+.isi2_mobile h5 {
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     font-size: 12px;
     color: white
 }
 
+<<<<<<< HEAD
+=======
+/* akhir laynard 2 */
+/* akhir kabinet */
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
 
 /* nilai */
 .nilai {
@@ -1847,7 +2014,11 @@ footer {
 }
 
 .icon_footer .logo-footer {
+<<<<<<< HEAD
     width: 160px;
+=======
+    width: 200px;
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     height: 160px;
     display: block;
     pointer-events: none;
@@ -1872,6 +2043,10 @@ footer {
 .icon_footer a img {
     width: 24px;
     height: 24px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 073ba58d3511c666b9840c11543818f3eeafba0c
     background-color: #744fbf;
 }
 

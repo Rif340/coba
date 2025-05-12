@@ -1284,7 +1284,7 @@ li {
 /* kabinet */
 .kabinet_desktop {
 	background:
-		linear-gradient(#6C35B8,#0F0123 ) no-repeat center/cover;
+		linear-gradient(#6C35B8, #0F0123) no-repeat center/cover;
 	position: relative;
 	height: 800px;
 	width: 100%;
@@ -1301,7 +1301,7 @@ li {
 	align-items: center;
 	z-index: 1;
 	position: relative;
-	padding-inline:5rem;
+	padding-inline: 5rem;
 }
 
 .tekskabinet_desktop h1 {
@@ -1326,8 +1326,8 @@ li {
 	text-align: center;
 }
 
-#kabinet2{
-color:white;
+#kabinet2 {
+	color: white;
 }
 
 .bulan-dekstop {
@@ -1337,9 +1337,10 @@ color:white;
 	bottom: 0;
 }
 
-.bulan-dekstop2{
-	display:none;
+.bulan-dekstop2 {
+	display: none;
 }
+
 /* akhir kabinet */
 
 /* ngatur background grid boostrap */
@@ -1360,7 +1361,8 @@ color:white;
 
 .grid-col {
 	flex: 1 1 calc(33.333% - 1rem);
-	display: flex; }
+	display: flex;
+}
 
 .card {
 	background-color: #ab6fff;
@@ -1372,16 +1374,19 @@ color:white;
 	flex-direction: column;
 	justify-content: space-between;
 }
+
 .card h5 {
-  margin: 0 0 0.3rem 0; /* Lebih rapat antar h5 */
-  font-size: 1.2rem;
+	margin: 0 0 0.3rem 0;
+	/* Lebih rapat antar h5 */
+	font-size: 1.2rem;
 }
 
 .card p {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  flex-grow: 1;
+	margin-top: 0.5rem;
+	font-size: 0.95rem;
+	flex-grow: 1;
 }
+
 /* akhir grid */
 
 /* =============== section Footer ================ */

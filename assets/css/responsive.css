@@ -1,0 +1,497 @@
+@media only screen and (max-width: 7000px) {
+	.page-wrapper {
+		overflow: hidden;
+	}
+}
+
+@media only screen and (max-width: 1023px) {
+
+	.main-header .nav-outer .main-menu,
+	.sticky-header {
+		display: none !important;
+	}
+
+	.nav-outer .mobile-nav-toggler {
+		display: block !important;
+		margin: 0;
+		padding: 24px 0;
+	}
+
+	.header-upper {
+		background-color: white;
+	}
+
+	.main-header .header-upper .nav-outer:before {
+		display: none !important;
+	}
+
+	.main-header .dropdown>a>i {
+		display: none !important;
+	}
+
+	.main-header .nav-outer {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: flex-start !important;
+		margin-left: 10px !important;
+		width: auto;
+		float: none;
+	}
+
+	.main-header .nav-outer .logo-outer {
+		position: relative !important;
+		left: 0 !important;
+		top: 8px !important;
+		width: auto !important;
+		height: auto !important;
+		margin: 0 !important;
+		-webkit-transform: translateX(0) !important;
+		-ms-transform: translateX(0) !important;
+		transform: translateX(0) !important;
+	}
+
+	.nav-outer .mobile-nav-toggler {
+		position: absolute !important;
+		right: 10px;
+		top: 60%;
+		transform: translateY(-50%) !important;
+		line-height: 50px !important;
+		display: block !important;
+		margin: 0;
+		padding: 24px 0;
+	}
+
+
+
+	/* icon bintang*/
+
+	/* =============== landing-page-grand-design-mobile ================ */
+
+
+
+	/* =============== landing-page-grand-design-mobile ================ */
+
+	/* =============== pdf teks ================*/
+
+
+	/* =============== akhir pdf teks ================*/
+
+	/* =============== Live Kabinet ================*/
+	/* laynard 2 */
+	.live-kabinet {
+		width: 100%;
+		height: 64px;
+		background-color: #643cb8;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		white-space: nowrap;
+		position: relative;
+		left: 0;
+		bottom: 0;
+		z-index: 4;
+	}
+
+	@keyframes tickerMove {
+		from {
+			transform: translateX(0);
+		}
+
+		to {
+			transform: translateX(-100%);
+		}
+	}
+
+	.live-kabinet .live {
+		min-width: 10%;
+		display: flex;
+		align-items: center;
+		padding: 0 70px;
+		flex-shrink: 0;
+		animation: tickerMove 1.5s linear infinite;
+	}
+
+	.live-kabinet img {
+		width: 48px;
+		height: 32px;
+	}
+
+	.live-kabinet span {
+		color: white;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	/* =============== akhir Live Kabinet ================*/
+
+	/* =============== gambar pdf ================*/
+
+
+	/* =============== akhir gambar pdf ================*/
+
+
+	/* =============== section Footer ================ */
+	.footer-text {
+		display: flex !important;
+		position: relative;
+		gap: 60px !important;
+		padding: 20px 20px 0 20px !important;
+	}
+
+	.logo-section {
+		margin-left: 0px !important;
+	}
+
+	.section-3 {
+		margin-top: -20px !important;
+	}
+
+	#teks1 {
+		margin-top: 1rem;
+	}
+
+	.teks_dekstop h1 {
+		font-size: 10vw;
+	}
+
+	/* landing page icon bintang */
+	/* rumusnya ukuran awal X width baru / width lama = 30vw *(1023/1536) */
+	.img_long {
+		left: 19.15vw;
+		bottom: 10rem;
+		position: absolute;
+	}
+
+	/* akhir landing page icon bintang */
+
+}
+
+@media screen and (max-width: 980px) {
+
+	/* rumusnya ukuran awal X width baru / width lama = 30vw *(980/1536) */
+	.img_long {
+		left: 19.15vw;
+		bottom: 10rem;
+		position: absolute;
+	}
+
+	.img_wide5 {
+		width: 45px;
+		height: 45px;
+		position: absolute;
+		bottom: 20.63rem;
+		left: 5.10rem;
+		opacity: 0.8;
+	}
+
+	.img_wide4 {
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		opacity: 0.8;
+		bottom: 5.74rem;
+		left: 1.27rem;
+	}
+
+	.img_wide {
+		position: absolute;
+		bottom: 20rem;
+		right: 17rem;
+		opacity: 0.8;
+	}
+
+	.img_wide2 {
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		bottom: 27rem;
+		right: 5rem;
+		opacity: 0.8;
+	}
+
+	.img_wide3 {
+		position: absolute;
+		width: 45px;
+		height: 45px;
+		bottom: 1rem;
+		right: 13rem;
+		opacity: 0.8;
+		rotate: 23deg;
+	}
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+	/* perjalanan */
+	/*==================== BIDANG SECTION ====================*/
+	.bidang-section {
+		width: 100%;
+		height: 700px;
+	}
+
+	.bidang-container {
+		text-align: center;
+	}
+
+	.left {
+		position: relative;
+		left: 0;
+		top: auto;
+		transform: none;
+		max-width: 100%;
+		text-align: center;
+		padding: 0;
+	}
+
+	.bidang-slide {
+		position: relative;
+	}
+
+	.bidang-slide .tahun {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(88deg);
+		font-size: 17em;
+		font-weight: 800;
+		opacity: 20%;
+		z-index: -1;
+		pointer-events: none;
+		user-select: none;
+		display: block;
+	}
+
+	.bidang-slide h2 {
+		font-size: 12vw;
+		letter-spacing: -1px;
+		padding-bottom: 1rem;
+	}
+
+	.bidang-slide p {
+		font-size: 1rem;
+	}
+
+	.bidang-slide.active .bintang-besar {
+		display: none;
+	}
+
+	.bidang-slide.active .bintang-kecil {
+		display: none;
+	}
+
+	.bidang-slide.active .bintang-besar2 {
+		position: absolute;
+		top: -4rem;
+		display: block;
+		left: -1%;
+	}
+
+	.bidang-slide.active .bintang-kecil2 {
+		position: absolute;
+		top: 30%;
+		display: block;
+		right: 9%;
+		width: 30px;
+		height: 30px;
+	}
+
+	.bidang-nav {
+		position: absolute;
+		flex-direction: row;
+		justify-content: center;
+		left: 50%;
+		transform: translateX(-50%);
+		margin-top: 15rem;
+	}
+
+
+
+	.bidang-nav button {
+		width: 30px;
+		height: 30px;
+		font-size: 1rem;
+		border: 3px solid #D2B2FF;
+	}
+
+	.bidang-dots {
+		flex-direction: row;
+		gap: 5px;
+	}
+
+	.dot {
+		width: 6px;
+		height: 6px;
+	}
+
+	#prev i::before {
+		content: "\f060";
+	}
+
+	#next i::before {
+		content: "\f061";
+	}
+
+	/* akhir perjalanan */
+	/* landing page */
+	.landingpagesejarah_desktop {
+		display: none;
+	}
+
+	.landingpagesejarah_mobile {
+		display: block;
+		background:
+			linear-gradient(#0F0123, #6C35B8) no-repeat center/cover;
+		position: relative;
+		width: 100%;
+		height: 95vh;
+		padding-top: 9rem;
+		padding-bottom: 2rem
+	}
+
+	.teks_mobile {
+		z-index: 2;
+		position: relative;
+		width: 100%;
+	}
+
+	.teks_mobile button {
+		width: 218px;
+		height: 52px;
+		background-color: #643cb8;
+		border: none;
+		border-radius: 12px;
+		margin-inline: auto;
+		font-size: 18px;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.teks_mobile button:hover {
+		background: linear-gradient(to right, #ffb8cf, #93e5fb);
+		color: #252742;
+	}
+
+	.teks_mobile button i {
+		color: white;
+		margin-left: 5px;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.teks_mobile button:hover i {
+		rotate: 90deg;
+		color: #252742;
+	}
+
+	.teks_mobile h1 {
+		background: linear-gradient(to right, #ffb8cf, #93e5fb);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		line-height: 1;
+		font-size: 58.7px;
+		text-align: center;
+	}
+
+	.teks_mobile p {
+		color: white;
+		padding-block: 1rem;
+		padding-inline: 4rem;
+		text-align: center;
+	}
+
+	.bulan-awan-mobile {
+		display: block;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+
+	/* landing page */
+
+	/* kabinet */
+	.kabinet_desktop {
+		background:
+			linear-gradient(#6C35B8, #0F0123) no-repeat center/cover;
+		position: relative;
+		height: max-content;
+		width: 100%;
+		display: block;
+		padding-top: 3rem;
+
+	}
+
+	.tekskabinet_desktop {
+		padding-inline: 0;
+	}
+
+	.tekskabinet_desktop h1 {
+		font-size: 13vw;
+	}
+
+	.tekskabinet_desktop p {
+		font-size: 2vw;
+		line-height:1rem;
+		padding-bottom:2rem;
+	}
+
+	.bulan-dekstop {
+		display: none;
+	}
+
+	.bulan-dekstop2 {
+		display: block;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+
+	/* akhir kabinet */
+
+	/* card */
+		.grid-col {
+			flex: 1 1 100%;}
+		
+	/* akhir card */
+
+	/* =============== section Footer ================ */
+	.footer-text {
+		display: flex !important;
+		position: relative;
+		gap: 70px !important;
+		padding: 20px 0 0 20px !important;
+	}
+
+	.logo-section {
+		margin-left: 0px !important;
+	}
+
+	.section-3 {
+		margin-top: -0px !important;
+	}
+
+	#teks1 {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+
+	.main-menu .navigation>li>ul,
+	.main-menu .navigation>li>ul>li>ul {
+		display: block !important;
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	#teks1 {
+		margin-top: 0\;
+	}
+
+}

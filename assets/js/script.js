@@ -1,23 +1,3 @@
-// OPACITY TURUN
-window.addEventListener('scroll', function () {
-	const header = document.querySelector('.header-upper');
-	const liveAwal = document.querySelector('.live-awal');
-
-	if (!header || !liveAwal) return;
-
-	const posisiLiveAwal = liveAwal.getBoundingClientRect().top;
-	const posisiHeader = header.getBoundingClientRect().bottom;
-
-	if (posisiLiveAwal <= window.innerHeight && posisiLiveAwal > 0) {
-		header.style.opacity = '0.5';
-	}
-
-	if (posisiHeader >= 0 && posisiLiveAwal > window.innerHeight) {
-		header.style.opacity = '1';
-	}
-});
-// AKHIR OPACITY TURUN
-
 // NAVBAR
 (function($) {
 	
@@ -111,7 +91,6 @@ window.addEventListener('scroll', function () {
 		});
 	}
 	
-	
 	$(window).on('load', function() {
 		handlePreloader();
 	});	
@@ -119,124 +98,26 @@ window.addEventListener('scroll', function () {
 })(window.jQuery);
 // AKHIR  NAVBAR
 
-// COURSEL
-document.addEventListener('DOMContentLoaded', function () {
-	const wrapper = document.querySelector('.live-wrapper');
-	const container = document.querySelector('.live-awal');
 
-	if (!wrapper || !container) return;
+// LIVE KABINET
+document.addEventListener("DOMContentLoaded", function () {
+  const liveHero = document.querySelector(".live-wrapper");
+  const items = Array.from(liveHero.children);
+  const screenWidth = window.innerWidth;
+  let totalWidth = liveHero.scrollWidth;
 
-	let isDown = false;
-	let startX;
-	let scrollLeft;
-
-	// Logger untuk debugging
-	function logState(message) {
-		console.log(`${message} - isDown: ${isDown}, scrollLeft: ${scrollLeft}`);
-	}
-
-	// Tangani event mouse down
-	container.addEventListener('mousedown', function (e) {
-		isDown = true;
-		wrapper.classList.add('dragging');
-		startX = e.pageX;
-
-		// Perbaikan: Gunakan computed style untuk mendapatkan transform saat ini
-		const style = window.getComputedStyle(wrapper);
-		const matrix = new DOMMatrix(style.transform);
-		scrollLeft = matrix.m41; // Ambil nilai translateX dari matrix
-
-		logState('Mouse down');
-		e.preventDefault();
-	});
-
-	// Tangani event mouse leave dan mouse up
-	container.addEventListener('mouseleave', function (e) {
-		if (isDown) {
-			resetDrag(e);
-		}
-	});
-
-	container.addEventListener('mouseup', function (e) {
-		resetDrag(e);
-	});
-
-	// Tangani event mouse move untuk dragging
-	container.addEventListener('mousemove', function (e) {
-		if (!isDown) return;
-		e.preventDefault();
-		const x = e.pageX;
-		const walk = (x - startX); // Seberapa jauh mouse telah bergerak
-		wrapper.style.transform = `translateX(${scrollLeft + walk}px)`;
-	});
-
-	// Untuk touch devices
-	container.addEventListener('touchstart', function (e) {
-		isDown = true;
-		wrapper.classList.add('dragging');
-		startX = e.touches[0].pageX;
-
-		// Perbaikan: Gunakan computed style untuk mendapatkan transform saat ini
-		const style = window.getComputedStyle(wrapper);
-		const matrix = new DOMMatrix(style.transform);
-		scrollLeft = matrix.m41; // Ambil nilai translateX dari matrix
-
-		logState('Touch start');
-	}, { passive: false });
-
-	container.addEventListener('touchend', resetDrag);
-	container.addEventListener('touchcancel', resetDrag);
-
-	container.addEventListener('touchmove', function (e) {
-		if (!isDown) return;
-		const x = e.touches[0].pageX;
-		const walk = (x - startX);
-		wrapper.style.transform = `translateX(${scrollLeft + walk}px)`;
-		e.preventDefault();
-	}, { passive: false });
-
-	// Reset drag status
-	function resetDrag(e) {
-		if (!isDown) return; // Hindari multiple resets
-
-		isDown = false;
-		wrapper.classList.remove('dragging');
-		logState('Reset drag');
-
-		// Jangan reset posisi, biarkan di posisi terakhir saat masih hover
-		if (!container.matches(':hover')) {
-			// Hanya reset saat mouse tidak di atas container
-			resetAnimation();
-		}
-	}
-
-	// Reset animasi
-	function resetAnimation() {
-		logState('Reset animation');
-		// Simpan transform saat ini sebelum di-reset
-		const oldTransform = wrapper.style.transform;
-
-		// Reset transform
-		wrapper.style.transform = '';
-
-		// Matikan animasi dulu
-		wrapper.style.animation = 'none';
-
-		// Paksa re-flow untuk memulai ulang animasi
-		void wrapper.offsetWidth;
-
-		// Nyalakan kembali animasi
-		wrapper.style.animation = 'tickerMove 10s linear infinite';
-	}
-
-	// Event listener untuk reset animasi saat mouse leave
-	container.addEventListener('mouseleave', function () {
-		logState('Mouse leave');
-		resetAnimation();
-	});
+  // Gandakan sampai lebar cukup melebihi layar 2x (untuk seamless loop)
+  while (totalWidth < screenWidth * 2) {
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      liveHero.appendChild(clone);
+    });
+    totalWidth = liveHero.scrollWidth;
+  }
 });
-// AKHIR COURSEL
+// AKHIR LIVE KABINET
 
+// BIDANG PERJALANAN
 document.addEventListener("DOMContentLoaded", function () {
 	let currentIndex = 0;
 	const slides = document.querySelectorAll(".bidang-slide");
@@ -291,78 +172,20 @@ document.addEventListener("DOMContentLoaded", function () {
 	showSlide(currentIndex);
 });
 
-// LIVE 2
-document.addEventListener('DOMContentLoaded', function () {
-	const wrapper = document.querySelector('.live2-wrapper');
-	const container = document.querySelector('.live2-awal');
+// LIVE KABINET 2
+document.addEventListener("DOMContentLoaded", function () {
+  const liveHero = document.querySelector(".live2-wrapper");
+  const items = Array.from(liveHero.children);
+  const screenWidth = window.innerWidth;
+  let totalWidth = liveHero.scrollWidth;
 
-	if (!wrapper || !container) return;
-
-	let isDown = false;
-	let startX;
-	let scrollLeft;
-
-	function resetAnimation() {
-		const oldTransform = wrapper.style.transform;
-		wrapper.style.transform = '';
-		wrapper.style.animation = 'none';
-		void wrapper.offsetWidth;
-		wrapper.style.animation = 'tickerMove2 10s linear infinite';
-	}
-
-	function resetDrag() {
-		if (!isDown) return;
-		isDown = false;
-		wrapper.classList.remove('dragging');
-		if (!container.matches(':hover')) {
-			resetAnimation();
-		}
-	}
-
-	container.addEventListener('mousedown', function (e) {
-		isDown = true;
-		wrapper.classList.add('dragging');
-		startX = e.pageX;
-
-		const style = window.getComputedStyle(wrapper);
-		const matrix = new DOMMatrix(style.transform);
-		scrollLeft = matrix.m41;
-
-		e.preventDefault();
-	});
-
-	container.addEventListener('mousemove', function (e) {
-		if (!isDown) return;
-		const x = e.pageX;
-		const walk = x - startX;
-		wrapper.style.transform = `translateX(${scrollLeft + walk}px)`;
-		e.preventDefault();
-	});
-
-	container.addEventListener('mouseleave', resetDrag);
-	container.addEventListener('mouseup', resetDrag);
-
-	// Touch support
-	container.addEventListener('touchstart', function (e) {
-		isDown = true;
-		wrapper.classList.add('dragging');
-		startX = e.touches[0].pageX;
-
-		const style = window.getComputedStyle(wrapper);
-		const matrix = new DOMMatrix(style.transform);
-		scrollLeft = matrix.m41;
-	}, { passive: false });
-
-	container.addEventListener('touchmove', function (e) {
-		if (!isDown) return;
-		const x = e.touches[0].pageX;
-		const walk = x - startX;
-		wrapper.style.transform = `translateX(${scrollLeft + walk}px)`;
-		e.preventDefault();
-	}, { passive: false });
-
-	container.addEventListener('touchend', resetDrag);
-	container.addEventListener('touchcancel', resetDrag);
+  // Gandakan sampai lebar cukup melebihi layar 2x (untuk seamless loop)
+  while (totalWidth < screenWidth * 2) {
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      liveHero.appendChild(clone);
+    });
+    totalWidth = liveHero.scrollWidth;
+  }
 });
-
-// AKHIR LIVE 2
+// AKHIR LIVE KABINET 2

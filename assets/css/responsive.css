@@ -219,7 +219,9 @@
 }
 
 @media screen and (max-width: 768px) {
-
+	.mobile-menu .nav-logo{
+		width: 65%;
+	}
 	/* perjalanan */
 	/*==================== BIDANG SECTION ====================*/
 	.bidang-section {

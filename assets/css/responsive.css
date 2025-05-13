@@ -19,7 +19,7 @@
 
 	.header-upper {
 		background-color: white;
-		opacity:1 !important;
+		opacity: 1 !important;
 	}
 
 	.main-header .header-upper .nav-outer:before {
@@ -219,12 +219,13 @@
 		rotate: 23deg;
 	}
 
-	
+
 
 }
 
 @media screen and (max-width: 768px) {
-/* perjalanan */
+
+	/* perjalanan */
 	/*==================== BIDANG SECTION ====================*/
 	.bidang-section {
 		width: 100%;
@@ -234,7 +235,7 @@
 
 	.bidang-container {
 		text-align: center;
-		height: 350px; 	
+		height: 350px;
 	}
 
 	.left {
@@ -355,6 +356,7 @@
 		opacity: 1;
 		transform: translateX(0);
 	}
+
 	/* akhir perjalanan */
 	/* landing page */
 	.landingpagesejarah_desktop {
@@ -435,36 +437,37 @@
 		bottom: 0;
 	}
 
-	.long{
+	.long {
 		position: absolute;
 		bottom: 13rem;
 		right: 1rem;
-		width:40px;
+		width: 40px;
 		height: 40x;
 	}
 
-	.wide{
+	.wide {
 		position: absolute;
 		bottom: 13rem;
 		rotate: 23deg;
 		left: 1rem;
-		width:30px;
+		width: 30px;
 		height: 30px;
 	}
 
-	.wide2{
+	.wide2 {
 		position: absolute;
 		bottom: 32rem;
-		left:2rem;
+		left: 2rem;
 	}
 
-	.wide3{
+	.wide3 {
 		position: absolute;
-		bottom:34rem;
+		bottom: 34rem;
 		right: 5rem;
 		width: 30px;
-			height: 30px;
+		height: 30px;
 	}
+
 	/* landing page */
 
 	/* kabinet */
@@ -489,8 +492,8 @@
 
 	.tekskabinet_desktop p {
 		font-size: 2vw;
-		line-height:1rem;
-		padding-bottom:2rem;
+		line-height: 1rem;
+		padding-bottom: 2rem;
 	}
 
 	.bulan-dekstop {
@@ -507,9 +510,10 @@
 	/* akhir kabinet */
 
 	/* card */
-		.grid-col {
-			flex: 1 1 100%;}
-		
+	.grid-col {
+		flex: 1 1 100%;
+	}
+
 	/* akhir card */
 
 	/* =============== section Footer ================ */

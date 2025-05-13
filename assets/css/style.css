@@ -2,7 +2,7 @@
 	display: none;
 }
 
-
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 body {
 	margin: 0px;
@@ -220,7 +220,7 @@ li {
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 20px;
-	font-family: "Figtree";
+	font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .live-news .rectangle .sinergis {
@@ -248,7 +248,7 @@ li {
 	align-content: center;
 	line-height: 49px;
 	font-size: 19px;
-	font-family: "Figtree";
+	font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .live-news .marquee span a {
@@ -279,6 +279,7 @@ li {
 
 .header-upper a {
 	text-decoration: none;
+	font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .header-upper.sticky {
@@ -325,7 +326,7 @@ li {
 	margin: 0;
 	color: white;
 	font-size: 28px;
-	font-family: "Figtree";
+	font-family: 'Plus Jakarta Sans', sans-serif;
 	font-weight: 600;
 }
 
@@ -365,7 +366,7 @@ li {
 }
 
 .main-menu .navigation>li>a {
-	font-family: "Figtree";
+	font-family: 'Plus Jakarta Sans', sans-serif;
 	position: relative;
 	display: block;
 	text-align: center;
@@ -450,7 +451,7 @@ li {
 	line-height: 24px;
 	font-weight: 500;
 	font-size: 15px;
-	font-family: "Figtree";
+	font-family: 'Plus Jakarta Sans', sans-serif;
 	text-transform: capitalize;
 	color: #252525;
 	text-align: left;
@@ -479,7 +480,7 @@ li {
 }
 
 .main-menu .navigation>li>ul>li.dropdown>a:after {
-	font-family: "Figtree";
+	font-family: 'Plus Jakarta Sans', sans-serif;
 	content: "\f105";
 	position: absolute;
 	right: 20px;
@@ -544,7 +545,7 @@ li {
 	line-height: 24px;
 	font-weight: 500;
 	font-size: 15px;
-	font-family: "Figtree";
+	font-family: 'Plus Jakarta Sans', sans-serif;
 	text-transform: capitalize;
 	color: #252525;
 	text-align: left;
@@ -768,7 +769,7 @@ li {
 	padding: 10px 25px;
 	font-size: 15px;
 	font-weight: 500;
-	font-family: "Figtree";
+	font-family: 'Plus Jakarta Sans', sans-serif;
 	color: #ffffff;
 	text-transform: uppercase;
 	-webkit-transition: all 500ms ease;
@@ -780,7 +781,7 @@ li {
 
 .mobile-menu .navigation li ul li>a {
 	font-size: 16px;
-	font-family: "Figtree";
+	font-family: 'Plus Jakarta Sans', sans-serif;
 	margin-left: 20px;
 	text-transform: capitalize;
 }
@@ -1134,7 +1135,7 @@ li {
 
 /* akhir landing mobile */
 
-/* perjalanan */
+/* perjalanan - CSS dengan transisi sangat smooth */
 .bidang-section {
 	position: relative;
 	width: 100%;
@@ -1145,8 +1146,7 @@ li {
 	align-items: center;
 	text-align: center;
 	overflow: hidden;
-	background:
-		linear-gradient(#0F0123, #6C35B8) no-repeat center/cover;
+	background: linear-gradient(#0F0123, #6C35B8) no-repeat center/cover;
 }
 
 .bidang-container {
@@ -1158,45 +1158,38 @@ li {
 	flex-direction: column;
 	text-align: center;
 	padding: 2rem;
-	transition: opacity 0.5s, transform 0.5s;
 }
 
 .bidang-slide {
+	position: absolute;
+	/* Absolute untuk menghindari "dug" effect */
+	width: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
 	display: none;
+	/* Display none by default */
+	flex-direction: column;
 	align-items: center;
 	opacity: 0;
-	transform: translateY(10px);
-	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+	will-change: opacity;
+	/* Optimasi GPU */
 }
 
 .bidang-slide.active {
+	z-index: 2;
+	/* Pastikan slide aktif berada di atas */
 	display: flex;
-	flex-direction: column;
-	opacity: 1;
-	transform: translateY(0);
-	position: relative;
+	/* Tampilkan slide aktif */
 }
 
-.bidang-slide.active .bintang-besar {
-	position: absolute;
-	top: 0;
-	left: 20%;
+/* Tambahkan class untuk animasi saat slide keluar */
+.bidang-slide.slide-out {
+	opacity: 0;
+	transform: translateY(-30px);
 }
 
-.bidang-slide.active .bintang-kecil {
-	position: absolute;
-	top: 35%;
-	left: 69%;
-}
-
-.bidang-slide.active .bintang-besar2 {
-	display: none;
-}
-
-.bidang-slide.active .bintang-kecil2 {
-	display: none;
-}
-
+/* Animasi untuk konten dalam slide */
 .bidang-slide h2 {
 	background: linear-gradient(88deg, #ffb8cf, #93e5fb);
 	-webkit-background-clip: text;
@@ -1206,6 +1199,17 @@ li {
 	padding-bottom: 1rem;
 	line-height: 1;
 	width: 100%;
+	opacity: 0;
+	transform: translateY(15px);
+	transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+	will-change: opacity, transform;
+}
+
+.bidang-slide.active h2 {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.3s;
+	/* Delay untuk animasi bertahap */
 }
 
 .bidang-slide p {
@@ -1214,6 +1218,55 @@ li {
 	color: #FFFFFF;
 	margin-top: 1rem;
 	margin-bottom: 2.5rem;
+	opacity: 0;
+	transform: translateY(15px);
+	transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+	will-change: opacity, transform;
+}
+
+.bidang-slide.active p {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.5s;
+	/* Delay untuk animasi bertahap */
+}
+
+.bidang-slide.active .bintang-besar {
+	position: absolute;
+	top: 0;
+	left: 20%;
+	opacity: 0;
+	animation: twinkle 3s infinite alternate;
+	animation-delay: 0.7s;
+}
+
+.bidang-slide.active .bintang-kecil {
+	position: absolute;
+	top: 35%;
+	left: 69%;
+	opacity: 0;
+	animation: twinkle 2.5s infinite alternate;
+	animation-delay: 0.9s;
+}
+
+@keyframes twinkle {
+	0% {
+		opacity: 0.6;
+		transform: scale(0.95);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.bidang-slide.active .bintang-besar2 {
+	display: none;
+}
+
+.bidang-slide.active .bintang-kecil2 {
+	display: none;
 }
 
 .tahun {
@@ -1240,12 +1293,11 @@ li {
 	flex-direction: column;
 	align-items: center;
 	gap: 10px;
+	z-index: 10;
 }
 
 .bidang-nav button {
 	background: #D2B2FF;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 	border: 4px solid #D2B2FF;
 	width: 40px;
 	height: 40px;
@@ -1253,13 +1305,20 @@ li {
 	font-size: 1.2rem;
 	font-weight: 700;
 	cursor: pointer;
-	transition: 0.3s;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .bidang-nav button:hover {
-	background: #D2B2FF;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	background: #b585ff;
+	transform: scale(1.1);
+	box-shadow: 0 0 10px rgba(210, 178, 255, 0.6);
+}
+
+.bidang-nav button:active {
+	transform: scale(0.95);
 }
 
 .bidang-dots {
@@ -1274,12 +1333,20 @@ li {
 	background: linear-gradient(90deg, #FFB8CF, #93E5FB);
 	border-radius: 50%;
 	cursor: pointer;
-	transition: 0.3s;
+	transition: all 0.3s ease;
+	opacity: 0.6;
 }
 
 .dot.active {
 	transform: scale(1.4);
 	background: linear-gradient(90deg, #FFB8CF, #93E5FB);
+	opacity: 1;
+	box-shadow: 0 0 8px rgba(255, 184, 207, 0.7);
+}
+
+.dot:hover {
+	transform: scale(1.2);
+	opacity: 0.8;
 }
 
 /* akhir perjalanan */
@@ -1287,7 +1354,7 @@ li {
 /* kabinet */
 .kabinet_desktop {
 	background:
-		linear-gradient(#6C35B8,#0F0123 ) no-repeat center/cover;
+		linear-gradient(#6C35B8, #0F0123) no-repeat center/cover;
 	position: relative;
 	height: 800px;
 	width: 100%;
@@ -1304,7 +1371,7 @@ li {
 	align-items: center;
 	z-index: 1;
 	position: relative;
-	padding-inline:5rem;
+	padding-inline: 5rem;
 }
 
 .tekskabinet_desktop h1 {
@@ -1329,8 +1396,8 @@ li {
 	text-align: center;
 }
 
-#kabinet2{
-color:white;
+#kabinet2 {
+	color: white;
 }
 
 .bulan-dekstop {
@@ -1340,9 +1407,10 @@ color:white;
 	bottom: 0;
 }
 
-.bulan-dekstop2{
-	display:none;
+.bulan-dekstop2 {
+	display: none;
 }
+
 /* akhir kabinet */
 
 /* ngatur background grid boostrap */
@@ -1363,28 +1431,88 @@ color:white;
 
 .grid-col {
 	flex: 1 1 calc(33.333% - 1rem);
-	display: flex; }
+	display: flex;
+}
 
 .card {
+	position: relative;
+	z-index: 0;
 	background-color: #ab6fff;
 	color: white;
-	border-radius: 5px;
-	padding: 1rem;
+	border-radius: 10px;
+	padding: 1.5rem;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	overflow: hidden;
+
+	/* Efek timbul smooth */
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.card h5 {
-  margin: 0 0 0.3rem 0; /* Lebih rapat antar h5 */
-  font-size: 1.2rem;
+
+.card:hover {
+	transform: scale(1.03);
+	/* Perbesar sedikit saat hover */
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+	/* Lebih dalam */
+}
+
+/* Efek conic border berputar saat hover */
+.card::before {
+	content: '';
+	position: absolute;
+	z-index: -2;
+	left: -50%;
+	top: -50%;
+	width: 200%;
+	height: 200%;
+	background-image: conic-gradient(transparent,
+			#D8A7E5, #FFDA63,
+			transparent 30%);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	opacity: 0;
+	transform: rotate(0deg);
+	transition: opacity 0.3s ease;
+	border-radius: inherit;
+}
+
+.card:hover::before {
+	animation: rotate 4s linear infinite;
+	opacity: 1;
+}
+
+.card::after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	left: 6px;
+	top: 6px;
+	width: calc(100% - 12px);
+	height: calc(100% - 12px);
+	background: #ab6fff;
+	border-radius: inherit;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+.card h4 {
+	margin: 0 0 0.3rem 0;
+	font-size: 1.2rem;
 }
 
 .card p {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  flex-grow: 1;
+	margin-top: 0.5rem;
+	font-size: 0.95rem;
+	flex-grow: 1;
 }
+
 /* akhir grid */
 
 /* =============== section Footer ================ */

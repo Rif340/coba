@@ -119,7 +119,7 @@ window.addEventListener('scroll', function () {
 })(window.jQuery);
 // AKHIR  NAVBAR
 
-// COURSEL
+// LIVE !
 document.addEventListener('DOMContentLoaded', function () {
 	const wrapper = document.querySelector('.live-wrapper');
 	const container = document.querySelector('.live-awal');
@@ -235,61 +235,200 @@ document.addEventListener('DOMContentLoaded', function () {
 		resetAnimation();
 	});
 });
-// AKHIR COURSEL
+// AKHIR LIVE !
 
+// COURSEL
 document.addEventListener("DOMContentLoaded", function () {
 	let currentIndex = 0;
 	const slides = document.querySelectorAll(".bidang-slide");
 	const dots = document.querySelectorAll(".dot");
 	const prevBtn = document.getElementById("prev");
 	const nextBtn = document.getElementById("next");
+	const totalSlides = slides.length;
+	let isAnimating = false; // Flag untuk mencegah klik cepat berulang
 
-	function showSlide(index) {
-		slides.forEach((slide, i) => {
-			if (i === index) {
-				slide.style.opacity = "0";
-				slide.style.transform = "translateY(20px)"; // Efek geser ke bawah
-				setTimeout(() => {
-					slides.forEach((s) => s.classList.remove("active")); // Hapus active di semua
-					slide.classList.add("active");
-					slide.style.opacity = "1";
-					slide.style.transform = "translateY(0)";
-				}, 200); // Delay agar tidak langsung muncul
-			} else {
-				slide.style.opacity = "0";
-				slide.style.transform = "translateY(-20px)"; // Efek geser ke atas saat pindah
-			}
+	// Inisialisasi semua slide
+	slides.forEach((slide, index) => {
+		// Siapkan slide yang tidak aktif dengan opacity 0
+		if (index !== 0) {
+			slide.style.opacity = "0";
+			slide.style.display = "none";
+		}
+	});
+
+	// Fungsi untuk menampilkan slide dengan transisi super smooth
+	function showSlide(index, direction = 'next') {
+		// Jika sedang animasi, jangan lakukan apa-apa
+		if (isAnimating) return;
+		isAnimating = true;
+
+		// Validasi index agar tidak keluar batas
+		if (index < 0) index = 0;
+		if (index >= totalSlides) index = totalSlides - 1;
+
+		// Slide yang aktif saat ini
+		const currentSlide = document.querySelector(".bidang-slide.active");
+		const targetSlide = slides[index];
+
+		// Reset all transitions first
+		slides.forEach(slide => {
+			slide.style.transition = 'none';
 		});
 
-		dots.forEach((dot, i) => {
-			dot.classList.toggle("active", i === index);
+		// Siapkan target slide untuk ditampilkan, tapi masih dengan opacity 0
+		targetSlide.style.display = "flex";
+		targetSlide.style.opacity = "0";
+
+		// Absolute smooth fade transition
+		if (currentSlide) {
+			// Force browser reflow
+			void currentSlide.offsetWidth;
+
+			// Atur transisi untuk fade out smooth
+			currentSlide.style.transition = 'opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1)';
+			currentSlide.style.opacity = "0";
+
+			// Delay sangat kecil sebelum memulai fade in
+			setTimeout(() => {
+				// Force browser reflow lagi
+				void targetSlide.offsetWidth;
+
+				// Atur transisi untuk fade in smooth
+				targetSlide.style.transition = 'opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+				targetSlide.style.opacity = "1";
+
+				// Tambahkan kelas active ke target slide
+				targetSlide.classList.add("active");
+
+				// Update dots navigation
+				dots.forEach((dot, i) => {
+					dot.classList.toggle("active", i === index);
+				});
+
+				// Setelah fade out selesai, hapus kelas active dari slide saat ini
+				setTimeout(() => {
+					if (currentSlide) {
+						currentSlide.classList.remove("active");
+						currentSlide.style.display = "none"; // Hide completely
+					}
+
+					// Update current index
+					currentIndex = index;
+
+					// Reset flag animasi
+					isAnimating = false;
+				}, 600); // Sedikit lebih lama dari durasi fade out
+			}, 50); // Delay minimal untuk smooth
+		} else {
+			// Jika tidak ada slide aktif (pertama kali load)
+			targetSlide.classList.add("active");
+			void targetSlide.offsetWidth;
+			targetSlide.style.transition = 'opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+			targetSlide.style.opacity = "1";
+
+			// Update dots navigation
+			dots.forEach((dot, i) => {
+				dot.classList.toggle("active", i === index);
+			});
+
+			// Update current index
+			currentIndex = index;
+
+			// Reset flag animasi
+			setTimeout(() => {
+				isAnimating = false;
+			}, 800);
+		}
+	}
+
+	// Event listener untuk navigasi prev button
+	if (prevBtn) {
+		prevBtn.addEventListener("click", function () {
+			if (currentIndex > 0) {
+				showSlide(currentIndex - 1, 'prev');
+			}
 		});
 	}
 
-	prevBtn.addEventListener("click", function () {
-		if (currentIndex > 0) {
-			currentIndex--;
-			showSlide(currentIndex);
-		}
-	});
+	// Event listener untuk navigasi next button
+	if (nextBtn) {
+		nextBtn.addEventListener("click", function () {
+			if (currentIndex < slides.length - 1) {
+				showSlide(currentIndex + 1, 'next');
+			}
+		});
+	}
 
-	nextBtn.addEventListener("click", function () {
-		if (currentIndex < slides.length - 1) {
-			currentIndex++;
-			showSlide(currentIndex);
-		}
-	});
-
+	// Event listener untuk navigasi dots
 	dots.forEach((dot, i) => {
 		dot.addEventListener("click", function () {
-			currentIndex = i;
-			showSlide(currentIndex);
+			const direction = i > currentIndex ? 'next' : 'prev';
+			showSlide(i, direction);
 		});
 	});
 
+	// Tambahkan keyboard navigation
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'ArrowLeft' && currentIndex > 0) {
+			showSlide(currentIndex - 1, 'prev');
+		} else if (e.key === 'ArrowRight' && currentIndex < slides.length - 1) {
+			showSlide(currentIndex + 1, 'next');
+		}
+	});
+
+	// Tambahkan touch swipe untuk mobile
+	let touchStartX = 0;
+	let touchEndX = 0;
+	let touchStartY = 0;
+	let touchEndY = 0;
+
+	const bidangSection = document.querySelector('.bidang-section');
+	if (bidangSection) {
+		bidangSection.addEventListener('touchstart', function (e) {
+			touchStartX = e.changedTouches[0].screenX;
+			touchStartY = e.changedTouches[0].screenY;
+		}, { passive: true });
+
+		bidangSection.addEventListener('touchend', function (e) {
+			touchEndX = e.changedTouches[0].screenX;
+			touchEndY = e.changedTouches[0].screenY;
+			handleSwipe();
+		}, { passive: true });
+	}
+
+	function handleSwipe() {
+		const swipeThreshold = 50; // Minimum pixel yang dianggap sebagai swipe
+
+		// Hitung jarak swipe horizontal dan vertikal
+		const deltaX = touchEndX - touchStartX;
+		const deltaY = touchEndY - touchStartY;
+
+		// Hanya proses swipe jika horizontal lebih dominan
+		if (Math.abs(deltaX) > Math.abs(deltaY)) {
+			if (deltaX < -swipeThreshold && currentIndex < slides.length - 1) {
+				// Swipe kiri = next
+				showSlide(currentIndex + 1, 'next');
+			}
+
+			if (deltaX > swipeThreshold && currentIndex > 0) {
+				// Swipe kanan = prev
+				showSlide(currentIndex - 1, 'prev');
+			}
+		}
+	}
+
 	// Tampilkan slide pertama saat halaman dimuat
-	showSlide(currentIndex);
+	// Gunakan setTimeout untuk memastikan DOM sudah siap
+	setTimeout(() => {
+		slides[0].style.display = "flex";
+		slides[0].classList.add("active");
+		setTimeout(() => {
+			slides[0].style.transition = 'opacity 1s cubic-bezier(0.22, 1, 0.36, 1)';
+			slides[0].style.opacity = "1";
+		}, 50);
+	}, 100);
 });
+// COURSEL
 
 // LIVE 2
 document.addEventListener('DOMContentLoaded', function () {

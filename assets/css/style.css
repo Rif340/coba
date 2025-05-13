@@ -1145,6 +1145,7 @@ li {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	padding-left: 4rem;
 	overflow: hidden;
 	background: linear-gradient(#0F0123, #6C35B8) no-repeat center/cover;
 }

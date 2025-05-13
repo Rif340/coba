@@ -164,7 +164,6 @@
 	}
 
 	/* akhir landing page icon bintang */
-
 }
 
 @media screen and (max-width: 980px) {
@@ -220,6 +219,7 @@
 		rotate: 23deg;
 	}
 
+	
 
 }
 
@@ -253,8 +253,8 @@
 	}
 
 	.bidang-slide .tahun {
-		position: relative;
-		top: 30%;
+		position: absolute;
+		top: 40%;
 		left: 50%;
 		transform: translate(-50%, -50%) rotate(88deg);
 		font-size: 17em;
@@ -435,6 +435,36 @@
 		bottom: 0;
 	}
 
+	.long{
+		position: absolute;
+		bottom: 13rem;
+		right: 1rem;
+		width:40px;
+		height: 40x;
+	}
+
+	.wide{
+		position: absolute;
+		bottom: 13rem;
+		rotate: 23deg;
+		left: 1rem;
+		width:30px;
+		height: 30px;
+	}
+
+	.wide2{
+		position: absolute;
+		bottom: 32rem;
+		left:2rem;
+	}
+
+	.wide3{
+		position: absolute;
+		bottom:34rem;
+		right: 5rem;
+		width: 30px;
+			height: 30px;
+	}
 	/* landing page */
 
 	/* kabinet */

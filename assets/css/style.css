@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap');
+@import url('scrollbar.css');
+
 ::-webkit-scrollbar {
 	display: none;
 }
-
-
 
 body {
 	margin: 0px;
@@ -164,105 +165,6 @@ li {
 	width: 100%;
 	z-index: 99999;
 	background-color: #252742;
-}
-
-.main-header .header-top {
-	position: relative;
-	transition: opacity 0.3s ease;
-}
-
-/* Live News */
-
-.live-news {
-	background: linear-gradient(to right, #320F48, #7A25AE);
-	position: fixed;
-	width: 115%;
-	height: 49px;
-	top: 0;
-	left: 0;
-}
-
-.live-news .rectangle {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 310.5px;
-	height: 49px;
-	z-index: 2;
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	box-shadow: #1C1E32;
-}
-
-.live-news .rectangle .rectangle-img {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 1;
-}
-
-.live-news .rectangle .rectangle-shadow {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 10px;
-	z-index: 0;
-}
-
-.live-news .rectangle .kabinet-sinergis {
-	position: relative;
-	z-index: 2;
-	color: white;
-	font-size: 22px;
-	font-weight: 500;
-	line-height: 20px;
-	font-family: "Figtree";
-}
-
-.live-news .rectangle .sinergis {
-	position: relative;
-	z-index: 2;
-	width: 57px;
-	height: 60px;
-	margin: 10px 30px 0 0;
-}
-
-.live-news .marquee {
-	width: 100%;
-	overflow: hidden;
-	white-space: nowrap;
-	box-sizing: border-box;
-	position: relative;
-	z-index: 1;
-}
-
-.live-news .marquee span {
-	display: inline-block;
-	padding-left: 100%;
-	animation: marquee 20s linear infinite;
-	color: white;
-	align-content: center;
-	line-height: 49px;
-	font-size: 19px;
-	font-family: "Figtree";
-}
-
-.live-news .marquee span a {
-	color: white;
-	text-decoration: underline;
-	font-weight: bold;
-}
-
-.live-news .marquee span:hover {
-	animation-play-state: paused;
-}
-
-.main-header .header-top .top {
-	position: relative;
 }
 
 /*=== Header Upper ===*/
@@ -605,7 +507,7 @@ li {
 	font-size: 40px;
 	line-height: 50px;
 	cursor: pointer;
-	color: #643cb8;
+	color: #ffffff;
 	display: none;
 }
 
@@ -1006,60 +908,45 @@ li {
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	white-space: nowrap;
 	position: relative;
-	left: 0;
-	bottom: 0;
 	z-index: 4;
 }
 
 .live-wrapper {
 	display: flex;
-	position: relative;
-	animation: tickerMove 10s linear infinite;
-	animation-fill-mode: forwards;
+	gap: 40px; /* jarak antar item */
+	animation: scrollTicker 10s linear infinite;
 }
 
-@keyframes tickerMove {
-	0% {
-		transform: translateX(0);
+@keyframes scrollTicker {
+	from {
+		transform: translateX(0%);
 	}
-
-	100% {
+	to {
 		transform: translateX(-50%);
 	}
 }
 
-.live-awal .live {
-	min-width: auto;
+.live {
 	display: flex;
 	align-items: center;
 	padding: 0 20px;
+	white-space: nowrap;
 	flex-shrink: 0;
 }
 
-.live-awal img {
+.live img {
 	width: 48px;
 	height: 32px;
 	margin-right: 10px;
 }
 
-.live-awal span {
+.live span {
 	color: white;
 	font-size: 16px;
 	font-weight: 600;
 }
 
-.live-awal:hover .live-wrapper {
-	animation-play-state: paused;
-	cursor: grab;
-}
-
-
-.live-awal .live-wrapper.dragging {
-	cursor: grabbing !important;
-	animation: none !important;
-}
 
 /* akhir live */
 
@@ -1071,60 +958,44 @@ li {
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	white-space: nowrap;
 	position: relative;
-	left: 0;
-	bottom: 0;
 	z-index: 4;
 }
 
 .live2-wrapper {
 	display: flex;
-	position: relative;
-	animation: tickerMove2 10s linear infinite;
-	animation-fill-mode: forwards;
+	gap: 40px; /* jarak antar item */
+	animation: scrollTicker 10s linear infinite;
 }
 
-@keyframes tickerMove2 {
-	0% {
-		transform: translateX(0);
+@keyframes scrollTicker {
+	from {
+		transform: translateX(0%);
 	}
-
-	100% {
+	to {
 		transform: translateX(-50%);
 	}
 }
 
-.live2-awal .live2 {
-	min-width: auto;
+.live2 {
 	display: flex;
 	align-items: center;
 	padding: 0 20px;
+	white-space: nowrap;
 	flex-shrink: 0;
 }
 
-.live2-awal img {
+.live2 img {
 	width: 48px;
 	height: 32px;
 	margin-right: 10px;
 }
 
-.live2-awal span {
+.live2 span {
 	color: white;
 	font-size: 16px;
 	font-weight: 600;
 }
-
-.live2-awal:hover .live2-wrapper {
-	animation-play-state: paused;
-	cursor: grab;
-}
-
-.live2-awal .live2-wrapper.dragging {
-	cursor: grabbing !important;
-	animation: none !important;
-}
-
 /* akhir live 2 */
 
 /* landing page mobile*/
@@ -1389,7 +1260,7 @@ color:white;
 
 /* =============== section Footer ================ */
 footer {
-	background-color: #643cb8;
+	background-color: #252742;
 	color: white;
 }
 
@@ -1456,7 +1327,7 @@ footer {
 	flex-direction: column;
 	align-items: center;
 	padding: 10px 20px;
-	background-color: #643cb8;
+	background-color: #252742;
 }
 
 hr {
